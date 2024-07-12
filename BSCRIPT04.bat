@@ -3,6 +3,8 @@ setlocal enabledelayedexpansion
 REM echo. and echo (===...) are for separators only sir
 REM C:\Users\Xebastiane Pitogo\Desktop\dummy, pang base lang sir para mas madali i copy tuwing testing
 
+echo hi
+
 :goBack
 REM Prompt the user for the source directory
 echo Dont use "cd" directly, instead type "C:\Users\Juan Doe\Desired Folder"
