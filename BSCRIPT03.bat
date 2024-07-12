@@ -1,6 +1,8 @@
 @echo off
 setlocal
 
+echo hi
+
 :menu
 cls
 echo Select from 1 to 8:
