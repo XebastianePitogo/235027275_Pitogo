@@ -1,27 +1,29 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
-REM Get user input for the 24-hour time
-set /p input_time=Enter the time (HH:MM): 
+REM Define the range of products (adjust as needed)
+set "start_product=100"
+set "end_product=10"
 
-REM Extract hours and minutes
-for /f "tokens=1,2 delims=:" %%a in ("%input_time%") do (
-    set "hours=%%a"
-    set "minutes=%%b"
-)
+REM Loop through the products in reverse order
+for /l %%p in (%start_product%,-1,%end_product%) do (
+    set "product=%%p"
+    set "factors="
 
-REM Convert to 12-hour format
-if %hours% lss 12 (
-    set "ampm=AM"
-    if %hours% equ 0 set "hours=12"
-) else (
-    set "ampm=PM"
-    if %hours% gtr 12 (
-        set /a "hours-=12"
+    REM Find factors for the current product
+    for /l %%i in (2,1,%%p) do (
+        set /a "remainder=!product! %% %%i"
+        if !remainder! equ 0 (
+            set "factors=!factors! %%i x !product:%%i=!"
+
+            REM Break the loop if we've found all factors
+            set /a "product /= %%i"
+            if !product! equ 1 goto :found_factors
+        )
     )
-)
 
-REM Display the result
-echo Converted time: %hours%:%minutes% %ampm%
+    :found_factors
+    echo Product %%p | Factors !factors!
+)
 
 endlocal
