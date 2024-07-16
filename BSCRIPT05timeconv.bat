@@ -1,8 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-echo check
-
 REM Define the range of products (adjust as needed)
 set "start_product=100"
 set "end_product=10"
