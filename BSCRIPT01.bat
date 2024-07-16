@@ -1,5 +1,5 @@
 @echo off
-
+echo hi
 rem websites
 start chrome "http://www.google.com"
 start chrome "https://uc-bcf.instructure.com/"
@@ -14,4 +14,5 @@ rem notepad
 start notepad
 
 shutdown /s /t 10
+
 
