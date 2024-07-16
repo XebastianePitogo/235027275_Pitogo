@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-echo hi
+echo change
 
 :menu
 cls
