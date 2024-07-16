@@ -1,5 +1,5 @@
 @echo off
-
+echo change
 :menu
 cls
 echo.
